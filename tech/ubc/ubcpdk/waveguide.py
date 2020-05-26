@@ -6,10 +6,10 @@ from phidl.utilities import load_lyp
 lys = load_lyp(os.path.join(os.path.dirname(__file__), "..", "ubc_layers.lyp"))
 
 
-def waveguide(length=10, width=0.5, layer=lys["WG"], layers_cladding=[lys["DEVREC"]]):
+def waveguide(length=10, width=0.5):
     c = Device()
     w = width
-    c.add_polygon([(0, -w), (length, -w), (length, w), (0, w)], layer=layer)
+    c.add_polygon([(0, -w), (length, -w), (length, w), (0, w)], layer=lys["WG"])
 
     c.add_port(name="W0", midpoint=[0, 0], width=width, orientation=180)
     c.add_port(name="E0", midpoint=[length, 0], width=width, orientation=0)

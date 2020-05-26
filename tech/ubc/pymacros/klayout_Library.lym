@@ -39,7 +39,6 @@ else:
         # For now, just get the files explicitly and make a WrappedLibrary.
         import sys, os
         sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
-        sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 
         from ubcpdk import waveguide
 
