@@ -1,11 +1,8 @@
-from collections import namedtuple
+from phidl.utilities import load_lyp
+from ubc.config import CONFIG
 
-layermap = dict(
-    WG=(1, 0), DEVREC=(68, 0), LABEL=(10, 0), PORT=(1, 10), FLOORPLAN=(99, 0)
-)
-
-LAYER = namedtuple("layer", layermap.keys())(*layermap.values())
+lys = load_lyp(str(CONFIG["lyp"]))
 
 
 if __name__ == "__main__":
-    print(LAYER)
+    print(lys)

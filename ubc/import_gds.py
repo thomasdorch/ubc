@@ -1,13 +1,13 @@
 import pathlib
 
 import pp
-from ubc.layers import LAYER
+from ubc.layers import lys
 
 cwd = pathlib.Path(__file__).parent.absolute()
 gds = cwd / "gds"
 
 
-layer = LAYER.WG
+layer = lys["WG"]
 port_width = 0.5
 
 

@@ -1,10 +1,10 @@
 import pp
-from ubc.layers import LAYER
+from ubc.layers import lys
 
 
 @pp.autoname
 def waveguide(
-    length=10, width=0.5, layer=LAYER.WG, layers_cladding=[LAYER.DEVREC], **kwargs
+    length=10, width=0.5, layer=lys["WG"], layers_cladding=[lys["DEVREC"]], **kwargs
 ):
     c = pp.c.waveguide(
         length=length,
@@ -21,7 +21,9 @@ def waveguide(
     ]
 
     for i, text in enumerate(labels):
-        c.add(pp.c.label(text=text, position=(length / 2, i * 0.1), layer=LAYER.DEVREC))
+        c.add(
+            pp.c.label(text=text, position=(length / 2, i * 0.1), layer=lys["DEVREC"])
+        )
     return c
 
 

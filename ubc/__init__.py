@@ -3,7 +3,7 @@
 import pp
 from ubc.add_gc import add_gc, gc_te1550
 from ubc.bend_circular import bend_circular
-from ubc.layers import LAYER
+from ubc.layers import lys
 from ubc.mzi import mzi
 from ubc.waveguide import waveguide
 from ubc.y_splitter import y_splitter
@@ -19,17 +19,6 @@ def ring_single_te(**kwargs):
     return add_gc(component=component)
 
 
-# components = [
-#     waveguide,
-#     bend_circular,
-#     y_splitter,
-#     mzi,
-#     gc_te1550,
-#     mzi_te,
-#     ring_single_te,
-# ]
-
-
 component_type2factory = dict(
     waveguide=waveguide,
     bend_circular=bend_circular,
@@ -41,7 +30,7 @@ component_type2factory = dict(
 )
 
 
-__all__ = list(component_type2factory.keys()) + ["LAYER"]
+__all__ = list(component_type2factory.keys()) + ["lys"]
 __version__ = "0.0.2"
 
 

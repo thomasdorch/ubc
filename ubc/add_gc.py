@@ -6,7 +6,7 @@ from pp.routing.manhattan import round_corners
 from ubc.bend_circular import bend_circular
 from ubc.config import CONFIG
 from ubc.import_gds import import_gds
-from ubc.layers import LAYER
+from ubc.layers import lys
 from ubc.waveguide import waveguide
 
 
@@ -55,7 +55,7 @@ def connect_strip(
 
 
 @pp.autoname
-def taper_factory(layer=LAYER.WG, layers_cladding=[], **kwargs):
+def taper_factory(layer=lys["WG"], layers_cladding=[], **kwargs):
     c = pp.c.taper(layer=layer, layers_cladding=layers_cladding, **kwargs)
     return c
 
@@ -87,7 +87,7 @@ def get_optical_text(port, gc, gc_index=None, component_name=None):
 
 
 gc_port_name = "W0"
-layer_label = LAYER.LABEL
+layer_label = lys["TEXT"]
 
 
 def get_input_labels_all(
@@ -149,7 +149,7 @@ def get_input_labels(
 
 def add_gc(
     component=waveguide,
-    layer_label=LAYER.LABEL,
+    layer_label=layer_label,
     grating_coupler=gc_te1550,
     bend_factory=bend_circular,
     straight_factory=waveguide,

@@ -35,7 +35,7 @@ CONFIG = hiyapyco.load(
 )
 CONFIG["module_path"] = module_path
 CONFIG["repo_path"] = repo_path
-
+CONFIG["lyp"] = repo_path / "tech" / "ubc" / "layers.lyp"
 
 if __name__ == "__main__":
     print(CONFIG["repo_path"])

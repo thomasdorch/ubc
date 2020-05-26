@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <technology>
- <name>UBC</name>
+ <name>ubc</name>
  <description/>
  <dbu>0.001</dbu>
  <base-path/>
  <original-base-path>/Users/ant12/.klayout/salt/soen_pdk/tech/OLMAC</original-base-path>
- <layer-properties_file>layers.lyp</layer-properties_file>
+ <layer-properties_file>ubc_layers.lyp</layer-properties_file>
  <add-other-layers>true</add-other-layers>
  <reader-options>
   <common>

@@ -1,9 +1,9 @@
 import pp
-from ubc.layers import LAYER
+from ubc.layers import lys
 
 
 @pp.autoname
-def bend_circular(radius=10, width=0.5, layer=LAYER.WG, layers_cladding=[], **kwargs):
+def bend_circular(radius=10, width=0.5, layer=lys["WG"], layers_cladding=[], **kwargs):
     c = pp.c.bend_circular(
         radius=radius,
         width=width,
@@ -19,7 +19,7 @@ def bend_circular(radius=10, width=0.5, layer=LAYER.WG, layers_cladding=[], **kw
     ]
 
     for i, text in enumerate(labels):
-        c.add(pp.c.label(text=text, position=(c.x, c.y + i * 0.1), layer=LAYER.DEVREC))
+        c.add(pp.c.label(text=text, position=(c.x, c.y + i * 0.1), layer=lys["DEVREC"]))
     return c
 
 
