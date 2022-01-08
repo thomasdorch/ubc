@@ -5,11 +5,14 @@ Wafer
 die:
 """
 
-from typing import Optional, List
+from typing import Optional, Dict, List, Union
 
 import asyncio
 from pydbantic import Database
 from pydbantic import DataBaseModel, PrimaryKey
+
+
+Setting = Union[str, float, int]
 
 
 # Software only
@@ -82,9 +85,22 @@ class Device(DataBaseModel):
 
 
 # Data
+class Instrument(DataBaseModel):
+    name: str = PrimaryKey()
+    settings: Dict[str, Setting]
+
+
+class Lab(DataBaseModel):
+    """Describe the lab state"""
+
+    name: str = PrimaryKey()
+    instruments: List[Instrument]
+
+
 class Measurement(DataBaseModel):
     name: str = PrimaryKey()
     device: Device
+    lab: Lab
     x: List[float]
     y: List[float]
     port1: str
