@@ -1,4 +1,5 @@
-"""Database Models
+"""Database Models using pydbantic
+
 Reticle: patterns that defines the wafer (the mask)
 Lot
 Wafer
