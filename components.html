@@ -1,0 +1,1021 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tutorials" href="notebooks.html" /><link rel="prev" title="UBCpdk 1.6.4" href="README.html" />
+
+    <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
+        <title>Components - ubcpdk documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ubcpdk  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">ubcpdk  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">UBCpdk 1.6.4</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Components</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/00_layout.html">Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/11_sparameters.html">Component FDTD simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/12_circuit_simulation.html">Circuit simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p>Here are the components available in the PDK</p>
+<section id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h1>
+<section id="add-fiber-array">
+<h2>add_fiber_array<a class="headerlink" href="#add-fiber-array" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.add_fiber_array">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">add_fiber_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">component:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">straight&gt;,</span> <span class="pre">component_name:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">*,</span> <span class="pre">gc_port_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt1',</span> <span class="pre">get_input_labels_function:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">get_input_labels&gt;,</span> <span class="pre">with_loopback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">optical_routing_type:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">fanout_length:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">grating_coupler:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">import_gds&gt;,</span> <span class="pre">gdsdir=PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds'),</span> <span class="pre">decorator=Compose(functools.partial(&lt;function</span> <span class="pre">rotate&gt;,</span> <span class="pre">angle=180),</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">add_ports_from_siepic_pins&gt;,</span> <span class="pre">pin_layer_optical=(1,</span> <span class="pre">10),</span> <span class="pre">pin_layer_electrical=(1,</span> <span class="pre">11))),</span> <span class="pre">gdspath='ebeam_gc_te1550.gds',</span> <span class="pre">polarization='te',</span> <span class="pre">wavelength=1.55,</span> <span class="pre">name='ebeam_gc_te1550',</span> <span class="pre">interconnect={'model':</span> <span class="pre">'ebeam_gc_te1550',</span> <span class="pre">'library':</span> <span class="pre">'Design</span> <span class="pre">kits/ebeam',</span> <span class="pre">'layout_model_port_pairs':</span> <span class="pre">{'opt1':</span> <span class="pre">'opt_wg'}}),</span> <span class="pre">cross_section:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">'strip',</span> <span class="pre">layer_label:</span> <span class="pre">~typing.Tuple[int,</span> <span class="pre">int]</span> <span class="pre">=</span> <span class="pre">(10,</span> <span class="pre">0),</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.add_fiber_array" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns component with grating couplers and labels on each port.</p>
+<p>Routes all component ports south.
+Can add align_ports loopback reference structure on the edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component</strong> – to connect.</p></li>
+<li><p><strong>component_name</strong> – for the label.</p></li>
+<li><p><strong>gc_port_name</strong> – grating coupler input port name ‘o1’.</p></li>
+<li><p><strong>get_input_labels_function</strong> – function to get input labels for grating couplers.</p></li>
+<li><p><strong>with_loopback</strong> – True, adds loopback structures.</p></li>
+<li><p><strong>optical_routing_type</strong> – None: autoselection, 0: no extension.</p></li>
+<li><p><strong>fanout_length</strong> – None  # if None, automatic calculation of fanout length.</p></li>
+<li><p><strong>grating_coupler</strong> – grating coupler instance, function or list of functions.</p></li>
+<li><p><strong>cross_section</strong> – spec.</p></li>
+<li><p><strong>layer_label</strong> – for label.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">add_fiber_array</span><span class="p">(</span><span class="n">gc_port_name</span><span class="o">=</span><span class="s1">&#39;opt1&#39;</span><span class="p">,</span> <span class="n">with_loopback</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">optical_routing_type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fanout_length</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-1.py">Source code</a>, <a class="reference external" href=".//components-1.png">png</a>, <a class="reference external" href=".//components-1.hires.png">hires.png</a>, <a class="reference external" href=".//components-1.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-1.png" class="plot-directive" src="_images/components-1.png" />
+</figure>
+</section>
+<section id="bend-euler">
+<h2>bend_euler<a class="headerlink" href="#bend-euler" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.bend_euler">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">bend_euler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">90.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_arc_floorplan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">720</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ccw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_bbox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross_section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CrossSection</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CrossSection</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'strip'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.bend_euler" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an euler bend that adiabatically transitions from straight to curved.
+By default, <cite>radius</cite> corresponds to the minimum radius of curvature of the bend.
+However, if <cite>with_arc_floorplan</cite> is True, <cite>radius</cite> corresponds to the effective
+radius of curvature (making the curve a drop-in replacement for an arc). If
+p &lt; 1.0, will create a “partial euler” curve as described in Vogelbacher et.
+al. <a class="reference external" href="https://dx.doi.org/10.1364/oe.27.031394">https://dx.doi.org/10.1364/oe.27.031394</a></p>
+<p>default p = 0.5 based on this paper
+<a class="reference external" href="https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-8-9150&amp;id=362937">https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-25-8-9150&amp;id=362937</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> – total angle of the curve.</p></li>
+<li><p><strong>p</strong> – Proportion of the curve that is an Euler curve.</p></li>
+<li><p><strong>with_arc_floorplan</strong> – If False: <cite>radius</cite> is the minimum radius of curvature
+If True: The curve scales such that the endpoints match a bend_circular
+with parameters <cite>radius</cite> and <cite>angle</cite></p></li>
+<li><p><strong>npoints</strong> – Number of points used per 360 degrees.</p></li>
+<li><p><strong>direction</strong> – cw (clock-wise) or ccw (counter clock-wise).</p></li>
+<li><p><strong>with_bbox</strong> – add bbox_layers and bbox_offsets to avoid DRC sharp edges.</p></li>
+<li><p><strong>cross_section</strong> – specification (CrossSection, string, CrossSectionFactory dict).</p></li>
+<li><p><strong>kwargs</strong> – cross_section settings.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>           <span class="n">o2</span>
+           <span class="o">|</span>
+          <span class="o">/</span>
+         <span class="o">/</span>
+        <span class="o">/</span>
+<span class="n">o1_____</span><span class="o">/</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">bend_euler</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">with_arc_floorplan</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">npoints</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;ccw&#39;</span><span class="p">,</span> <span class="n">with_cladding_box</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-2.py">Source code</a>)</p>
+</section>
+<section id="crossing">
+<h2>crossing<a class="headerlink" href="#crossing" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.crossing">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">crossing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.crossing" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">crossing</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-3.py">Source code</a>, <a class="reference external" href=".//components-3.png">png</a>, <a class="reference external" href=".//components-3.hires.png">hires.png</a>, <a class="reference external" href=".//components-3.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-3.png" class="plot-directive" src="_images/components-3.png" />
+</figure>
+</section>
+<section id="dbr">
+<h2>dbr<a class="headerlink" href="#dbr" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.dbr">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">dbr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07940573770491803</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07940573770491803</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ubcpdk/components/dbr.html#dbr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ubcpdk.components.dbr" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">dbr</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dw</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="mf">0.07940573770491803</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="mf">0.07940573770491803</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-4.py">Source code</a>, <a class="reference external" href=".//components-4.png">png</a>, <a class="reference external" href=".//components-4.hires.png">hires.png</a>, <a class="reference external" href=".//components-4.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-4.png" class="plot-directive" src="_images/components-4.png" />
+</figure>
+</section>
+<section id="dbr-cavity">
+<h2>dbr_cavity<a class="headerlink" href="#dbr-cavity" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.dbr_cavity">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">dbr_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ubcpdk/components/dbr.html#dbr_cavity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ubcpdk.components.dbr_cavity" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">dbr_cavity</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-5.py">Source code</a>, <a class="reference external" href=".//components-5.png">png</a>, <a class="reference external" href=".//components-5.hires.png">hires.png</a>, <a class="reference external" href=".//components-5.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-5.png" class="plot-directive" src="_images/components-5.png" />
+</figure>
+</section>
+<section id="dc-adiabatic">
+<h2>dc_adiabatic<a class="headerlink" href="#dc-adiabatic" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.dc_adiabatic">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">dc_adiabatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.dc_adiabatic" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">dc_adiabatic</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-6.py">Source code</a>, <a class="reference external" href=".//components-6.png">png</a>, <a class="reference external" href=".//components-6.hires.png">hires.png</a>, <a class="reference external" href=".//components-6.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-6.png" class="plot-directive" src="_images/components-6.png" />
+</figure>
+</section>
+<section id="dc-broadband-te">
+<h2>dc_broadband_te<a class="headerlink" href="#dc-broadband-te" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.dc_broadband_te">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">dc_broadband_te</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.dc_broadband_te" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">dc_broadband_te</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-7.py">Source code</a>, <a class="reference external" href=".//components-7.png">png</a>, <a class="reference external" href=".//components-7.hires.png">hires.png</a>, <a class="reference external" href=".//components-7.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-7.png" class="plot-directive" src="_images/components-7.png" />
+</figure>
+</section>
+<section id="dc-broadband-tm">
+<h2>dc_broadband_tm<a class="headerlink" href="#dc-broadband-tm" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.dc_broadband_tm">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">dc_broadband_tm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.dc_broadband_tm" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">dc_broadband_tm</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-8.py">Source code</a>, <a class="reference external" href=".//components-8.png">png</a>, <a class="reference external" href=".//components-8.hires.png">hires.png</a>, <a class="reference external" href=".//components-8.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-8.png" class="plot-directive" src="_images/components-8.png" />
+</figure>
+</section>
+<section id="ebeam-dc-te1550">
+<h2>ebeam_dc_te1550<a class="headerlink" href="#ebeam-dc-te1550" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.ebeam_dc_te1550">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">ebeam_dc_te1550</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gap:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.236,</span> <span class="pre">length:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">20.0,</span> <span class="pre">coupler_symmetric:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">coupler_symmetric&gt;,</span> <span class="pre">coupler_straight:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">coupler_straight&gt;,</span> <span class="pre">dy:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5.0,</span> <span class="pre">dx:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">10.0,</span> <span class="pre">cross_section:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">'strip',</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.ebeam_dc_te1550" title="Permalink to this definition">#</a></dt>
+<dd><p>A composition of functions</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">ebeam_dc_te1550</span><span class="p">(</span><span class="n">gap</span><span class="o">=</span><span class="mf">0.236</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-9.py">Source code</a>, <a class="reference external" href=".//components-9.png">png</a>, <a class="reference external" href=".//components-9.hires.png">hires.png</a>, <a class="reference external" href=".//components-9.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-9.png" class="plot-directive" src="_images/components-9.png" />
+</figure>
+</section>
+<section id="gc-te1310">
+<h2>gc_te1310<a class="headerlink" href="#gc-te1310" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.gc_te1310">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">gc_te1310</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdspath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ebeam_gc_te1310.gds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.gc_te1310" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">gc_te1310</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-10.py">Source code</a>, <a class="reference external" href=".//components-10.png">png</a>, <a class="reference external" href=".//components-10.hires.png">hires.png</a>, <a class="reference external" href=".//components-10.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-10.png" class="plot-directive" src="_images/components-10.png" />
+</figure>
+</section>
+<section id="gc-te1550">
+<h2>gc_te1550<a class="headerlink" href="#gc-te1550" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.gc_te1550">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">gc_te1550</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdspath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ebeam_gc_te1550.gds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.gc_te1550" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">gc_te1550</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-11.py">Source code</a>, <a class="reference external" href=".//components-11.png">png</a>, <a class="reference external" href=".//components-11.hires.png">hires.png</a>, <a class="reference external" href=".//components-11.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-11.png" class="plot-directive" src="_images/components-11.png" />
+</figure>
+</section>
+<section id="gc-te1550-broadband">
+<h2>gc_te1550_broadband<a class="headerlink" href="#gc-te1550-broadband" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.gc_te1550_broadband">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">gc_te1550_broadband</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdspath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ebeam_gc_te1550_broadband.gds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.gc_te1550_broadband" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">gc_te1550_broadband</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-12.py">Source code</a>, <a class="reference external" href=".//components-12.png">png</a>, <a class="reference external" href=".//components-12.hires.png">hires.png</a>, <a class="reference external" href=".//components-12.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-12.png" class="plot-directive" src="_images/components-12.png" />
+</figure>
+</section>
+<section id="gc-tm1550">
+<h2>gc_tm1550<a class="headerlink" href="#gc-tm1550" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.gc_tm1550">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">gc_tm1550</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdspath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ebeam_gc_tm1550.gds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.gc_tm1550" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">gc_tm1550</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-13.py">Source code</a>, <a class="reference external" href=".//components-13.png">png</a>, <a class="reference external" href=".//components-13.hires.png">hires.png</a>, <a class="reference external" href=".//components-13.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-13.png" class="plot-directive" src="_images/components-13.png" />
+</figure>
+</section>
+<section id="mzi">
+<h2>mzi<a class="headerlink" href="#mzi" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.mzi">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">mzi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">delta_length:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">10.0,</span> <span class="pre">length_y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">2.0,</span> <span class="pre">length_x:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">0.1,</span> <span class="pre">*,</span> <span class="pre">bend:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">bend_euler&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">straight:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">straight&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">straight_y:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">straight_x_top:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">straight_x_bot:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">splitter:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">import_gds&gt;,</span> <span class="pre">'ebeam_y_1550.gds',</span> <span class="pre">gdsdir=PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds'),</span> <span class="pre">library='Design</span> <span class="pre">kits/ebeam',</span> <span class="pre">decorator=functools.partial(&lt;function</span> <span class="pre">add_ports_from_siepic_pins&gt;,</span> <span class="pre">pin_layer_optical=(1,</span> <span class="pre">10),</span> <span class="pre">pin_layer_electrical=(1,</span> <span class="pre">11)),</span> <span class="pre">doc='Y</span> <span class="pre">junction</span> <span class="pre">TE1550</span> <span class="pre">50/50</span> <span class="pre">power.',</span> <span class="pre">name='ebeam_y_1550',</span> <span class="pre">interconnect={'model':</span> <span class="pre">'ebeam_y_1550',</span> <span class="pre">'layout_model_port_pairs':</span> <span class="pre">{'opt1':</span> <span class="pre">'opt_a1',</span> <span class="pre">'opt2':</span> <span class="pre">'opt_b1',</span> <span class="pre">'opt3':</span> <span class="pre">'opt_b2'},</span> <span class="pre">'properties':</span> <span class="pre">{'annotate':</span> <span class="pre">True}}),</span> <span class="pre">combiner:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">with_splitter:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">port_e1_splitter:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt2',</span> <span class="pre">port_e0_splitter:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt3',</span> <span class="pre">port_e1_combiner:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt2',</span> <span class="pre">port_e0_combiner:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt3',</span> <span class="pre">nbends:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">cross_section:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">'strip',</span> <span class="pre">cross_section_x_top:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cross_section_x_bot:</span> <span class="pre">~typing.Optional[~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.mzi" title="Permalink to this definition">#</a></dt>
+<dd><p>Mzi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delta_length</strong> – bottom arm vertical extra length.</p></li>
+<li><p><strong>length_y</strong> – vertical length for both and top arms.</p></li>
+<li><p><strong>length_x</strong> – horizontal length. None uses to the straight_x_bot/top defaults.</p></li>
+<li><p><strong>bend</strong> – 90 degrees bend library.</p></li>
+<li><p><strong>straight</strong> – straight function.</p></li>
+<li><p><strong>straight_y</strong> – straight for length_y and delta_length.</p></li>
+<li><p><strong>straight_x_top</strong> – top straight for length_x.</p></li>
+<li><p><strong>straight_x_bot</strong> – bottom straight for length_x.</p></li>
+<li><p><strong>splitter</strong> – splitter function.</p></li>
+<li><p><strong>combiner</strong> – combiner function.</p></li>
+<li><p><strong>with_splitter</strong> – if False removes splitter.</p></li>
+<li><p><strong>port_e1_combiner</strong> – east top combiner port.</p></li>
+<li><p><strong>port_e0_splitter</strong> – east bot splitter port.</p></li>
+<li><p><strong>port_e1_splitter</strong> – east top splitter port.</p></li>
+<li><p><strong>port_e0_combiner</strong> – east bot combiner port.</p></li>
+<li><p><strong>nbends</strong> – from straight top/bot to combiner (at least 2).</p></li>
+<li><p><strong>cross_section</strong> – for routing (sxtop/sxbot to combiner).</p></li>
+<li><p><strong>cross_section_x_top</strong> – optional top cross_section (defaults to cross_section).</p></li>
+<li><p><strong>cross_section_x_bot</strong> – optional bottom cross_section (defaults to cross_section).</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="n">b2______b3</span>
+              <span class="o">|</span>  <span class="n">sxtop</span>  <span class="o">|</span>
+      <span class="n">straight_y</span>        <span class="o">|</span>
+              <span class="o">|</span>         <span class="o">|</span>
+              <span class="n">b1</span>        <span class="n">b4</span>
+    <span class="n">splitter</span><span class="o">==|</span>         <span class="o">|==</span><span class="n">combiner</span>
+              <span class="n">b5</span>        <span class="n">b8</span>
+              <span class="o">|</span>         <span class="o">|</span>
+      <span class="n">straight_y</span>        <span class="o">|</span>
+              <span class="o">|</span>         <span class="o">|</span>
+<span class="n">delta_length</span><span class="o">/</span><span class="mi">2</span>          <span class="o">|</span>
+              <span class="o">|</span>         <span class="o">|</span>
+             <span class="n">b6__sxbot__b7</span>
+                  <span class="n">Lx</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">mzi</span><span class="p">(</span><span class="n">delta_length</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">length_y</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">length_x</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">with_splitter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">port_e1_splitter</span><span class="o">=</span><span class="s1">&#39;opt2&#39;</span><span class="p">,</span> <span class="n">port_e0_splitter</span><span class="o">=</span><span class="s1">&#39;opt3&#39;</span><span class="p">,</span> <span class="n">port_e1_combiner</span><span class="o">=</span><span class="s1">&#39;opt2&#39;</span><span class="p">,</span> <span class="n">port_e0_combiner</span><span class="o">=</span><span class="s1">&#39;opt3&#39;</span><span class="p">,</span> <span class="n">nbends</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-14.py">Source code</a>, <a class="reference external" href=".//components-14.png">png</a>, <a class="reference external" href=".//components-14.hires.png">hires.png</a>, <a class="reference external" href=".//components-14.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-14.png" class="plot-directive" src="_images/components-14.png" />
+</figure>
+</section>
+<section id="ring-single">
+<h2>ring_single<a class="headerlink" href="#ring-single" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.ring_single">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">ring_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">gap:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.2,</span> <span class="pre">radius:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">10.0,</span> <span class="pre">length_x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">4.0,</span> <span class="pre">length_y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.6,</span> <span class="pre">*,</span> <span class="pre">coupler_ring:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">coupler_ring&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">straight:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">straight&gt;,</span> <span class="pre">bend:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">bend_euler&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">cross_section:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">'strip',</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.ring_single" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a single ring.</p>
+<p>ring coupler (cb: bottom) connects to two vertical straights (sl: left, sr: right),
+two bends (bl, br) and horizontal straight (wg: top)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gap</strong> – gap between for coupler.</p></li>
+<li><p><strong>radius</strong> – for the bend and coupler.</p></li>
+<li><p><strong>length_x</strong> – ring coupler length.</p></li>
+<li><p><strong>length_y</strong> – vertical straight length.</p></li>
+<li><p><strong>coupler_ring</strong> – ring coupler spec.</p></li>
+<li><p><strong>straight</strong> – straight spec.</p></li>
+<li><p><strong>bend</strong> – 90 degrees bend spec.</p></li>
+<li><p><strong>cross_section</strong> – cross_section spec.</p></li>
+<li><p><strong>kwargs</strong> – cross_section settings.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">bl</span><span class="o">-</span><span class="n">st</span><span class="o">-</span><span class="n">br</span>
+ <span class="o">|</span>      <span class="o">|</span>
+ <span class="n">sl</span>     <span class="n">sr</span> <span class="n">length_y</span>
+ <span class="o">|</span>      <span class="o">|</span>
+<span class="o">--==</span><span class="n">cb</span><span class="o">==--</span> <span class="n">gap</span>
+
+ <span class="n">length_x</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">ring_single</span><span class="p">(</span><span class="n">gap</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">length_x</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">length_y</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-15.py">Source code</a>, <a class="reference external" href=".//components-15.png">png</a>, <a class="reference external" href=".//components-15.hires.png">hires.png</a>, <a class="reference external" href=".//components-15.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-15.png" class="plot-directive" src="_images/components-15.png" />
+</figure>
+</section>
+<section id="ring-with-crossing">
+<h2>ring_with_crossing<a class="headerlink" href="#ring-with-crossing" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.ring_with_crossing">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">ring_with_crossing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*,</span> <span class="pre">component=functools.partial(&lt;function</span> <span class="pre">import_gds&gt;,</span> <span class="pre">'ebeam_crossing4.gds',</span> <span class="pre">gdsdir=PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds'),</span> <span class="pre">library='Design</span> <span class="pre">kits/ebeam',</span> <span class="pre">decorator=functools.partial(&lt;function</span> <span class="pre">add_ports_from_siepic_pins&gt;,</span> <span class="pre">pin_layer_optical=(1,</span> <span class="pre">10),</span> <span class="pre">pin_layer_electrical=(1,</span> <span class="pre">11)),</span> <span class="pre">model='ebeam_crossing4',</span> <span class="pre">doc='TE</span> <span class="pre">waveguide</span> <span class="pre">crossing.'),</span> <span class="pre">gap:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.2,</span> <span class="pre">length_x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">4,</span> <span class="pre">length_y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">radius:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5.0,</span> <span class="pre">coupler:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">coupler_ring&gt;,</span> <span class="pre">straight:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">straight&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">bend:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">functools.partial(&lt;function</span> <span class="pre">bend_euler&gt;,</span> <span class="pre">cross_section='strip'),</span> <span class="pre">with_component:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">port_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'opt4',</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.ring_with_crossing" title="Permalink to this definition">#</a></dt>
+<dd><p>Single bus ring made of two couplers (ct: top, cb: bottom)
+connected with two vertical straights (wyl: left, wyr: right)
+(Device Under Test) in the middle to extract loss from quality factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component</strong> – dut</p></li>
+<li><p><strong>gap</strong> – </p></li>
+<li><p><strong>length</strong> – </p></li>
+<li><p><strong>length_y</strong> – </p></li>
+<li><p><strong>radius</strong> – </p></li>
+<li><p><strong>coupler</strong> – coupler function</p></li>
+<li><p><strong>straight</strong> – straight function</p></li>
+<li><p><strong>bend</strong> – bend function</p></li>
+<li><p><strong>with_component</strong> – </p></li>
+<li><p><strong>port_name</strong> – </p></li>
+<li><p><strong>kwargs</strong> – cross_section settings</p></li>
+<li><p><strong>with_component</strong> – if False changes component for just a straight</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">bl</span><span class="o">-</span><span class="n">wt</span><span class="o">-</span><span class="n">br</span>
+ <span class="o">|</span>      <span class="o">|</span> <span class="n">length_y</span>
+ <span class="n">wl</span>     <span class="n">component</span>
+ <span class="o">|</span>      <span class="o">|</span>
+<span class="o">--==</span><span class="n">cb</span><span class="o">==--</span> <span class="n">gap</span>
+
+ <span class="n">length_x</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">ring_with_crossing</span><span class="p">(</span><span class="n">gap</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">length_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">length_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">with_component</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">port_name</span><span class="o">=</span><span class="s1">&#39;opt4&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-16.py">Source code</a>, <a class="reference external" href=".//components-16.png">png</a>, <a class="reference external" href=".//components-16.hires.png">hires.png</a>, <a class="reference external" href=".//components-16.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-16.png" class="plot-directive" src="_images/components-16.png" />
+</figure>
+</section>
+<section id="spiral">
+<h2>spiral<a class="headerlink" href="#spiral" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.spiral">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">spiral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">N:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">6,</span> <span class="pre">x_inner_length_cutback:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">300.0,</span> <span class="pre">x_inner_offset:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y_straight_inner_top:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">xspacing:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">3.0,</span> <span class="pre">yspacing:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">3.0,</span> <span class="pre">bend:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.component.Component],</span> <span class="pre">~gdsfactory.component.Component,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">bend_euler&gt;,</span> <span class="pre">length:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cross_section:</span> <span class="pre">~typing.Union[str,</span> <span class="pre">~typing.Callable[[...],</span> <span class="pre">~gdsfactory.cross_section.CrossSection],</span> <span class="pre">~gdsfactory.cross_section.CrossSection,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]]</span> <span class="pre">=</span> <span class="pre">'strip',</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.spiral" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns spiral with input and output ports outside the spiral.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> – number of loops.</p></li>
+<li><p><strong>x_inner_length_cutback</strong> – x inner length.</p></li>
+<li><p><strong>x_inner_offset</strong> – x inner offset.</p></li>
+<li><p><strong>y_straight_inner_top</strong> – y straight inner top.</p></li>
+<li><p><strong>xspacing</strong> – center to center x-spacing.</p></li>
+<li><p><strong>yspacing</strong> – center to center y-spacing.</p></li>
+<li><p><strong>bend</strong> – function.</p></li>
+<li><p><strong>length</strong> – length in um, it is the approximates total length.</p></li>
+<li><p><strong>cross_section</strong> – spec.</p></li>
+<li><p><strong>kwargs</strong> – cross_section settings.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">spiral</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">x_inner_length_cutback</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span> <span class="n">x_inner_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y_straight_inner_top</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xspacing</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">yspacing</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-17.py">Source code</a>, <a class="reference external" href=".//components-17.png">png</a>, <a class="reference external" href=".//components-17.hires.png">hires.png</a>, <a class="reference external" href=".//components-17.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-17.png" class="plot-directive" src="_images/components-17.png" />
+</figure>
+</section>
+<section id="straight">
+<h2>straight<a class="headerlink" href="#straight" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.straight">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">straight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_bbox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross_section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CrossSection</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CrossSection</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'strip'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.straight" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Straight waveguide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – straight length (um).</p></li>
+<li><p><strong>npoints</strong> – number of points.</p></li>
+<li><p><strong>with_bbox</strong> – box in bbox_layers and bbox_offsets to avoid DRC sharp edges.</p></li>
+<li><p><strong>cross_section</strong> – specification (CrossSection, string, CrossSectionFactory dict).</p></li>
+<li><p><strong>kwargs</strong> – cross_section settings.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">--------------</span> <span class="n">o2</span>
+        <span class="n">length</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">with_pins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-18.py">Source code</a>)</p>
+</section>
+<section id="y-adiabatic">
+<h2>y_adiabatic<a class="headerlink" href="#y-adiabatic" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.y_adiabatic">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">y_adiabatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.y_adiabatic" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">y_adiabatic</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ebeam_y_adiabatic&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-19.py">Source code</a>, <a class="reference external" href=".//components-19.png">png</a>, <a class="reference external" href=".//components-19.hires.png">hires.png</a>, <a class="reference external" href=".//components-19.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-19.png" class="plot-directive" src="_images/components-19.png" />
+</figure>
+</section>
+<section id="y-splitter">
+<h2>y_splitter<a class="headerlink" href="#y-splitter" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ubcpdk.components.y_splitter">
+<span class="sig-prename descclassname"><span class="pre">ubcpdk.components.</span></span><span class="sig-name descname"><span class="pre">y_splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cellname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap_to_grid_nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdsdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/runner/work/ubc/ubc/ubcpdk/gds')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Component</span></span></span><a class="headerlink" href="#ubcpdk.components.y_splitter" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a Componenent from a GDS file.</p>
+<p>Adapted from phidl/geometry.py</p>
+<p>if any cell names are found on the component CACHE we append a $ with a
+number to the name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gdspath</strong> – path of GDS file.</p></li>
+<li><p><strong>cellname</strong> – cell of the name to import (None) imports top cell.</p></li>
+<li><p><strong>snap_to_grid_nm</strong> – snap to different nm grid (does not snap if False)</p></li>
+<li><p><strong>gdsdir</strong> – optional GDS directory.</p></li>
+<li><p><strong>read_metadata</strong> – loads metadata if it exists.</p></li>
+<li><p><strong>hashed_name</strong> – appends a hash to a shortened component name</p></li>
+<li><p><strong>kwargs</strong> – extra info for the imported component (polarization, wavelength …).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ubcpdk</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ubcpdk</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">y_splitter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ebeam_y_1550&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//components-20.py">Source code</a>, <a class="reference external" href=".//components-20.png">png</a>, <a class="reference external" href=".//components-20.hires.png">hires.png</a>, <a class="reference external" href=".//components-20.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/components-20.png" class="plot-directive" src="_images/components-20.png" />
+</figure>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="notebooks.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorials</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="README.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">UBCpdk 1.6.4</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2019, gdsfactory
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Components</a><ul>
+<li><a class="reference internal" href="#add-fiber-array">add_fiber_array</a></li>
+<li><a class="reference internal" href="#bend-euler">bend_euler</a></li>
+<li><a class="reference internal" href="#crossing">crossing</a></li>
+<li><a class="reference internal" href="#dbr">dbr</a></li>
+<li><a class="reference internal" href="#dbr-cavity">dbr_cavity</a></li>
+<li><a class="reference internal" href="#dc-adiabatic">dc_adiabatic</a></li>
+<li><a class="reference internal" href="#dc-broadband-te">dc_broadband_te</a></li>
+<li><a class="reference internal" href="#dc-broadband-tm">dc_broadband_tm</a></li>
+<li><a class="reference internal" href="#ebeam-dc-te1550">ebeam_dc_te1550</a></li>
+<li><a class="reference internal" href="#gc-te1310">gc_te1310</a></li>
+<li><a class="reference internal" href="#gc-te1550">gc_te1550</a></li>
+<li><a class="reference internal" href="#gc-te1550-broadband">gc_te1550_broadband</a></li>
+<li><a class="reference internal" href="#gc-tm1550">gc_tm1550</a></li>
+<li><a class="reference internal" href="#mzi">mzi</a></li>
+<li><a class="reference internal" href="#ring-single">ring_single</a></li>
+<li><a class="reference internal" href="#ring-with-crossing">ring_with_crossing</a></li>
+<li><a class="reference internal" href="#spiral">spiral</a></li>
+<li><a class="reference internal" href="#straight">straight</a></li>
+<li><a class="reference internal" href="#y-adiabatic">y_adiabatic</a></li>
+<li><a class="reference internal" href="#y-splitter">y_splitter</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>
